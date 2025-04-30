@@ -1,0 +1,30 @@
+/* Dashboard grid layout fix */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* Ensure all components in the grid have consistent dimensions */
+.dashboard-grid > * {
+  margin: 0 !important;
+  height: 350px !important; /* Force consistent height */
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Reset any margins that might be coming from individual components */
+.last-30-days-expense,
+.recent-income-with-charts {
+  margin: 0 !important;
+  max-width: none !important;
+  height: 100% !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

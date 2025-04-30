@@ -1,0 +1,93 @@
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px; /* Increased padding for better spacing */
+  height: 70px; /* Increased height */
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Slightly heavier shadow */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left section of the Navbar */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Increased gap for better spacing */
+  overflow: hidden;
+}
+
+/* Menu Button */
+.navbar-menu-btn {
+  background: none;
+  border: none;
+  font-size: 28px; /* Bigger icon size */
+  color: #333;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.navbar-menu-btn:hover {
+  color: #1f2937; /* Darker shade on hover */
+}
+
+/* Title Styling */
+.navbar-title {
+  font-size: 24px; /* Increased font size for the title */
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 280px; /* Set max-width for longer titles */
+}
+
+/* Right section of the Navbar (now empty since we removed the bell icon) */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px; /* Slightly increased gap */
+  overflow: hidden;
+}
+
+/* Responsive Design - Tablet and Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+    height: 60px;
+  }
+
+  .navbar-title {
+    font-size: 20px; /* Adjust title size on smaller screens */
+  }
+
+  .navbar-menu-btn {
+    font-size: 26px; /* Adjust menu icon size */
+    margin-right: 16px; /* Add margin for spacing */
+  }
+
+  .navbar-right {
+    gap: 16px; /* Adjust gap for right section */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-title {
+    font-size: 18px; /* Smaller title size for very small screens */
+    max-width: 180px;
+  }
+
+  .navbar-menu-btn {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,149 @@
+/* DashboardLayout.css */
+
+/* Main layout container */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden; /* prevent scrollbars globally */
+}
+
+/* Sidebar styling */
+.sidebar-container {
+  width: 280px; /* Increased from 250px */
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -280px; /* match new width */
+  background: white;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  transition: left 0.3s ease;
+
+  /* Remove scrollbar completely */
+  overflow: hidden;
+
+  /* Inner spacing for content */
+  padding: 24px 20px;
+  box-sizing: border-box;
+}
+
+/* When sidebar is open */
+.sidebar-container.open {
+  left: 0;
+}
+
+/* Main content wrapper */
+.main-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+  overflow: hidden;
+}
+
+/* Push content right when sidebar is open */
+.sidebar-open .main-content-wrapper {
+  margin-left: 280px; /* match sidebar width */
+}
+
+/* Dashboard content area */
+.dashboard-content {
+  flex: 1;
+  padding: 24px;
+  background-color: #f8f9fa;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-action-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #555;
+  cursor: pointer;
+  position: relative;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .sidebar-container {
+    width: 260px;
+    left: -260px;
+  }
+
+  .sidebar-open .sidebar-container {
+    left: 0;
+  }
+
+  .sidebar-open .main-content-wrapper {
+    margin-left: 0;
+  }
+
+  .sidebar-open:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-title {
+    font-size: 16px;
+  }
+}

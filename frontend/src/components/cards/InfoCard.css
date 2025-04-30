@@ -1,0 +1,125 @@
+/* InfoCard.css */
+
+/* Card container */
+.info-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+  height: 90px;
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon section */
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+/* Text content */
+.info-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.info-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+/* Theme Color Styles */
+.theme-blue {
+  border-left: 4px solid #3498db;
+}
+.theme-blue .icon-wrapper {
+  color: #3498db;
+  background-color: rgba(52, 152, 219, 0.12);
+}
+
+.theme-green {
+  border-left: 4px solid #2ecc71;
+}
+.theme-green .icon-wrapper {
+  color: #2ecc71;
+  background-color: rgba(46, 204, 113, 0.12);
+}
+
+.theme-red {
+  border-left: 4px solid #e74c3c;
+}
+.theme-red .icon-wrapper {
+  color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.12);
+}
+
+/* Other Themes (optional - for variety) */
+.theme-salary { border-left: 4px solid #4caf50; }
+.theme-salary .icon-wrapper { color: #4caf50; background-color: rgba(76, 175, 80, 0.12); }
+
+.theme-freelance { border-left: 4px solid #2196f3; }
+.theme-freelance .icon-wrapper { color: #2196f3; background-color: rgba(33, 150, 243, 0.12); }
+
+.theme-investments { border-left: 4px solid #ff9800; }
+.theme-investments .icon-wrapper { color: #ff9800; background-color: rgba(255, 152, 0, 0.12); }
+
+.theme-business { border-left: 4px solid #9c27b0; }
+.theme-business .icon-wrapper { color: #9c27b0; background-color: rgba(156, 39, 176, 0.12); }
+
+.theme-rental { border-left: 4px solid #f44336; }
+.theme-rental .icon-wrapper { color: #f44336; background-color: rgba(244, 67, 54, 0.12); }
+
+.theme-other { border-left: 4px solid #607d8b; }
+.theme-other .icon-wrapper { color: #607d8b; background-color: rgba(96, 125, 139, 0.12); }
+
+/* Responsive container */
+.infocontainer {
+  display: grid;
+  
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Dark mode styles */
+.dark-mode .info-card {
+  background-color: #2d3748;
+}
+
+.dark-mode .info-label {
+  color: #a0aec0;
+}
+
+.dark-mode .info-value {
+  color: #f7fafc;
+}

@@ -1,0 +1,87 @@
+/* Last30daysExpense.css */
+.last-30-days-expense {
+  background: linear-gradient(135deg, #fdfcfe, #f2f3f7);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(135, 92, 245, 0.12);
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  height: 100%; /* Changed from fixed height to be flexible */
+  min-height: 350px; /* Minimum height instead of fixed */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(4px);
+  width: 100%; /* Ensure it takes full width of its grid cell */
+}
+
+.last-30-days-expense:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(135, 92, 245, 0.2);
+}
+
+/* Left side line to differentiate the card */
+.last-30-days-expense::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #875cf5, #a88dfc);
+  border-radius: 6px 0 0 6px;
+}
+
+/* Inner container for header */
+.innercontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(135, 92, 245, 0.08);
+}
+
+/* Heading style */
+.text {
+  color: #2c2e35;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0;
+  position: relative;
+  padding-left: 10px;
+  letter-spacing: 0.5px;
+}
+
+/* Decorative line under the heading */
+.text::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #875cf5, #a88dfc);
+  border-radius: 2px;
+}
+
+/* Chart container styling */
+.chart-container {
+  padding-top: 20px;
+  height: calc(100% - 60px); /* Adjust height based on header */
+  min-height: 240px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .last-30-days-expense {
+    padding: 16px 12px;
+    min-height: 320px;
+  }
+  
+  .chart-container {
+    min-height: 180px;
+  }
+  
+  .text {
+    font-size: 17px;
+  }
+}
