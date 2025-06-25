@@ -1,14 +1,20 @@
-require("dotenv").config(); // ✅ Loads environment variables
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-const connectDb = require("./config/db"); // ✅ Corrected 'connectDb' import
-const Authroutes = require("./routes/Authroutes"); // ✅ FIXED: Added the missing quote
+const connectDb = require("./config/db");
+
+// Import routes
+const Authroutes = require("./routes/Authroutes");
 const incomeroutes = require("./routes/Incomeroutes");
-const expenseRoutes = require("./routes/expenseRoutes")
-const dashboardroutes = require("./routes/dashboardroutes"); // ✅ Added dashboard routes
+const expenseRoutes = require("./routes/expenseRoutes");
+const dashboardroutes = require("./routes/dashboardroutes");
+const insightsRoutes = require('./routes/insightsRoutes');
+const budgetRoutes = require('./routes/budgetRoutes');  // Ensure this import is correct
+
 const app = express();
 
+// CORS configuration
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -17,20 +23,25 @@ app.use(
   })
 );
 
-app.use(express.json()); // ✅ Parses incoming JSON
+// Middleware to parse incoming JSON data
+app.use(express.json());
 
-connectDb(); // ✅ Connect to the database
+// Connect to the database
+connectDb();
 
-// ✅ Mount the auth routes
+// Mounting Routes
 app.use("/api/v1/auth", Authroutes);
-app.use("/api/v1/income", incomeroutes); // ✅ Fixed the typo here
+app.use("/api/v1/income", incomeroutes);
 app.use("/api/v1/expense", expenseRoutes);
-app.use("/api/v1/dashboard", dashboardroutes); // ✅ Added dashboard routes
+app.use("/api/v1/dashboard", dashboardroutes);
+app.use("/api/v1/insights", insightsRoutes);
+app.use("/api/v1/budget", budgetRoutes);  // Add budget routes
 
-
+// Static file serving for uploads
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-const port = process.env.PORT || 5000;
 
+// Start the server on specified port
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`🚀 Server is running on port ${port}`);
 });

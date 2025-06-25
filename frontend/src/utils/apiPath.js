@@ -23,11 +23,25 @@ export const API_Path = {
   EXPENSE: {
     ADD_EXPENSE: '/api/v1/expense/add',
     GET_ALL_EXPENSE: '/api/v1/expense/getall',
-    DELETE_EXPENSE: (expenseId) => `/api/v1/expense/${expenseId}`, // FIXED name and path
+    DELETE_EXPENSE: (expenseId) => `/api/v1/expense/${expenseId}`,
     DOWNLOAD_EXPENSE: '/api/v1/expense/downloadexcel',
   },
 
   IMAGE: {
     UPLOAD_IMAGE: '/api/v1/auth/upload-image',
   },
+
+  SPENDINGINSIGHTS: {
+    GET_INSIGHTS: '/api/v1/insights/spending-insights', // Fixed syntax issue here
+  },
+
+  // New budget-related API paths
+    BUDGET: {
+    CREATE_BUDGET: '/api/v1/budget',
+    GET_ALL_BUDGETS: '/api/v1/budget',
+    GET_BUDGET_BY_ID: (id) => `/api/v1/budget/${id}`,
+    DELETE_BUDGET: (id) => `/api/v1/budget/${id}`,
+    UPDATE_CATEGORY_SPENDING: (categoryId) => `/api/v1/budget/category/${categoryId}/spend`,
+  },
+
 };

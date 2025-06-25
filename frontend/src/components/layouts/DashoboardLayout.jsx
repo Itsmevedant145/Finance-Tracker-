@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import Navbar from "./Navbar";
 import SideMenu from "./SideMenu";
 import { UserContext } from "../../context/UserContext";
-import RecentTransactions from "../Dashboard/RecentTransactions"; // ✅ Import it if not already
+
 import { useNavigate } from "react-router-dom";
 import "./DashboardLayout.css";
 
