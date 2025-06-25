@@ -1,17 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
-import { BiPieChartAlt2 } from 'react-icons/bi'; // Import budget icon
 import './Navbar.css';
-import BudgetPopover from './BudgetPopover'; // We'll create this next
 
-const Navbar = ({ toggleSidebar, sidebarOpen, budgetData }) => {
-  const [budgetPopoverVisible, setBudgetPopoverVisible] = useState(false);
-  
-  // Calculate number of over-budget categories
-  const overBudgetCount = budgetData?.categories?.filter(
-    category => category.spentAmount > category.budgetAmount
-  ).length || 0;
-  
+const Navbar = ({ toggleSidebar, sidebarOpen }) => {
   return (
     <div className="navbar">
       <div className="navbar-left">
@@ -23,28 +14,7 @@ const Navbar = ({ toggleSidebar, sidebarOpen, budgetData }) => {
       </div>
 
       <div className="navbar-right">
-        {/* Budget icon with notification indicator */}
-        <div className="budget-icon-container">
-          <button 
-            className="budget-icon-btn" 
-            onClick={() => setBudgetPopoverVisible(!budgetPopoverVisible)}
-            aria-label="View budget"
-          >
-            <BiPieChartAlt2 className="budget-icon" />
-            {overBudgetCount > 0 && (
-              <span className="budget-alert-badge">{overBudgetCount}</span>
-            )}
-          </button>
-          
-          {/* Budget popover */}
-          {budgetPopoverVisible && (
-            <BudgetPopover 
-              budgetData={budgetData} 
-              onClose={() => setBudgetPopoverVisible(false)}
-              onViewFull={() => window.location.href = '/budget'}
-            />
-          )}
-        </div>
+        {/* Removed budget icon and popover */}
       </div>
     </div>
   );

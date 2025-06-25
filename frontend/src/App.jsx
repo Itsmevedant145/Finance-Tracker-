@@ -10,7 +10,7 @@ import SignUp from './pages/Auth/SignUp';
 import Home from './pages/DashBoard/Home';
 import Income from './pages/DashBoard/Income';
 import Expense from './pages/DashBoard/Expense';
-import Budget from './pages/DashBoard/Budget';
+
 import { UserProvider } from './context/userContext';
 
 // ✅ Use ToastContainer from react-toastify
@@ -29,7 +29,7 @@ function App() {
             <Route path="/dashboard" element={<Home />} />
             <Route path="/income" element={<Income />} />
             <Route path="/expense" element={<Expense />} />
-            <Route path="/budget" element={<Budget />} />
+           
           </Routes>
         </Router>
       </div>

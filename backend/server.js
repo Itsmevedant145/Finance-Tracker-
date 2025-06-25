@@ -10,7 +10,7 @@ const incomeroutes = require("./routes/Incomeroutes");
 const expenseRoutes = require("./routes/expenseRoutes");
 const dashboardroutes = require("./routes/dashboardroutes");
 const insightsRoutes = require('./routes/insightsRoutes');
-const budgetRoutes = require('./routes/budgetRoutes');  // Ensure this import is correct
+;  // Ensure this import is correct
 
 const app = express();
 
@@ -35,8 +35,6 @@ app.use("/api/v1/income", incomeroutes);
 app.use("/api/v1/expense", expenseRoutes);
 app.use("/api/v1/dashboard", dashboardroutes);
 app.use("/api/v1/insights", insightsRoutes);
-app.use("/api/v1/budget", budgetRoutes);  // Add budget routes
-
 // Static file serving for uploads
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
