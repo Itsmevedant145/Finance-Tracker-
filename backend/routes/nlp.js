@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const { protect } = require('../middleware/authmiddleware'); // 👈 Import your middleware
+const { protect } = require('../middleware/authMiddleware'); // 👈 Import your middleware
 
 const router = express.Router();
 

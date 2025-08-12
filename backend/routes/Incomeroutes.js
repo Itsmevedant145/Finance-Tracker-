@@ -6,7 +6,7 @@ const {
   downloadIncomeExcel,
 } = require("../controllers/incomecontroller");
 
-const { protect } = require("../middleware/authmiddleware");
+const { protect } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
