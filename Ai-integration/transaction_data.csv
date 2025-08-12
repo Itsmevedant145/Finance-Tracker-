@@ -1,0 +1,210 @@
+text,type,category
+"Paid ₹2400 for monthly rent on Jan 15th",Expense,Rent
+"Spent INR 850 at Big Bazaar for groceries on Jan 12th",Expense,Groceries
+"Salary credited Rs. 45000 from TechCorp Solutions on Jan 1st",Income,Salary
+"Paid ₹1200 for electricity bill on Jan 10th",Expense,Utilities
+"Spent INR 320 at Cafe Coffee Day with friends on Jan 8th",Expense,Food
+"Paid Rs. 2000 for monthly gym membership on Jan 5th",Expense,Health
+"Freelance payment received ₹8500 from web design project on Jan 18th",Income,Freelance
+"Paid INR 1800 for medical checkup at Apollo Hospital on Jan 14th",Expense,Medical
+"Paid Rs. 450 for Uber ride to airport on Jan 20th",Expense,Transport
+"Spent ₹3499 on Udemy online course on Jan 7th",Expense,Education
+"Refund received INR 12000 from cancelled flight on Jan 22nd",Income,Refund
+"Spent Rs. 3500 on jewelry as birthday gift on Jan 11th",Expense,Gifts
+"Transferred ₹10000 to savings account on Jan 16th",Expense,Bank Transfer
+"Invested INR 5000 in mutual fund SIP on Jan 2nd",Expense,Investments
+"Spent Rs. 1200 on BigBasket grocery delivery on Jan 25th",Expense,Groceries
+"Paid ₹800 for dinner at McDonald's with family on Jan 19th",Expense,Food
+"Paid INR 350 for monthly water bill on Jan 6th",Expense,Utilities
+"Spent Rs. 600 on PVR movie tickets on Jan 13th",Expense,Entertainment
+"Consulting fees received ₹25000 from client on Jan 28th",Income,Freelance
+"Spent INR 750 on prescription medicines on Jan 9th",Expense,Medical
+"Paid Rs. 1200 for bus ticket to Mumbai on Jan 17th",Expense,Transport
+"Paid ₹4500 for Python programming course on Jan 21st",Expense,Education
+"Refund received INR 899 from Amazon return on Jan 24th",Income,Refund
+"Spent Rs. 2000 on wedding gift for colleague on Jan 15th",Expense,Gifts
+"Fixed deposit maturity credited ₹150000 on Jan 30th",Income,Investments
+"Spent INR 400 on vegetables at local market on Jan 3rd",Expense,Groceries
+"Paid Rs. 650 for Domino's pizza order on Jan 26th",Expense,Food
+"Paid ₹999 for Airtel Fiber internet bill on Jan 4th",Expense,Utilities
+"Paid INR 8000 for office space rent on Feb 1st",Expense,Rent
+"Received Rs. 12000 from graphic design project on Jan 29th",Income,Freelance
+"Spent ₹5500 on eye checkup and glasses on Feb 2nd",Expense,Medical
+"Paid INR 3500 for hotel booking in Goa on Jan 23rd",Expense,Travel
+"Paid Rs. 2800 for photography workshop fee on Feb 5th",Expense,Education
+"Refund received ₹1299 from Flipkart return on Feb 3rd",Income,Refund
+"Spent INR 4000 on anniversary gift for parents on Jan 27th",Expense,Gifts
+"Invested Rs. 20000 in Reliance stocks on Feb 4th",Expense,Investments
+"Spent ₹2200 on monthly ration from D-Mart on Feb 1st",Expense,Groceries
+"Paid INR 180 for lunch at office cafeteria on Feb 6th",Expense,Food
+"Paid Rs. 950 for gas cylinder refill on Feb 2nd",Expense,Utilities
+"Spent ₹1500 on cricket match tickets on Feb 8th",Expense,Entertainment
+"Received INR 6000 from content writing project on Feb 7th",Income,Freelance
+"Paid Rs. 2200 for dental treatment on Feb 9th",Expense,Medical
+"Paid ₹4500 for flight ticket to Delhi on Feb 10th",Expense,Transport
+"Paid INR 4200 for Microsoft Office subscription on Feb 5th",Expense,Education
+"Refund received Rs. 899 from cancelled Myntra order on Feb 11th",Income,Refund
+"Paid ₹1000 as Diwali bonus to maid on Feb 12th",Expense,Gifts
+"Invested INR 15000 in ELSS for tax saving on Feb 13th",Expense,Investments
+"Spent Rs. 250 on fruits and snacks from vendor on Feb 14th",Expense,Groceries
+"Paid ₹120 for street food at evening market on Feb 15th",Expense,Food
+"Paid INR 299 for Jio mobile recharge on Feb 8th",Expense,Utilities
+"Part-time teaching salary credited Rs. 8000 on Feb 16th",Income,Salary
+"Received ₹18000 from web development project on Feb 17th",Income,Freelance
+"Paid INR 800 for blood test at diagnostic center on Feb 18th",Expense,Medical
+"Paid Rs. 450 for train ticket to Pune on Feb 19th",Expense,Transport
+"Paid ₹1500 for online guitar lessons subscription on Feb 14th",Expense,Education
+"Wrong transaction reversal refund INR 5000 on Feb 20th",Income,Refund
+"Spent Rs. 2500 on birthday celebration dinner on Feb 21st",Expense,Food
+"Paid ₹3200 for house maintenance and repairs on Feb 22nd",Expense,Household
+"Spent INR 35000 on gaming console purchase on Feb 16th",Expense,Entertainment
+"Received Rs. 4500 from logo design project on Feb 23rd",Income,Freelance
+"Paid ₹600 for physiotherapy session on Feb 24th",Expense,Medical
+"Paid INR 280 for cab fare to railway station on Feb 25th",Expense,Transport
+"Spent Rs. 450 on book purchase from Amazon on Feb 26th",Expense,Education
+"Duplicate payment refund ₹2000 received on Feb 27th",Income,Refund
+"Spent INR 800 on Christmas gift for neighbor on Dec 25th",Expense,Gifts
+"Invested Rs. 25000 in gold ETF on Feb 28th",Expense,Investments
+"Spent ₹680 on organic vegetables from farm on Mar 1st",Expense,Groceries
+"Paid INR 350 for breakfast at hotel on Mar 2nd",Expense,Food
+"Paid Rs. 300 for Tata Sky DTH recharge on Mar 3rd",Expense,Utilities
+"Bonus payment credited ₹12000 from company on Mar 1st",Income,Salary
+"Received INR 35000 from mobile app development on Mar 4th",Income,Freelance
+"Paid Rs. 1100 for X-ray and consultation on Mar 5th",Expense,Medical
+"Paid ₹800 for monthly bus pass on Mar 6th",Expense,Transport
+"Paid INR 6000 for Spanish language course on Mar 7th",Expense,Education
+"Shoe return refund Rs. 1200 received on Mar 8th",Income,Refund
+"Spent ₹1500 on housewarming gift for friend on Mar 9th",Expense,Gifts
+"Invested INR 150000 in PPF for the year on Mar 10th",Expense,Investments
+"Spent Rs. 150 on milk and bread daily needs on Mar 11th",Expense,Groceries
+"Paid ₹80 for tea and samosa at office on Mar 12th",Expense,Food
+"Paid INR 250 for landline phone bill on Mar 13th",Expense,Utilities
+"Paid Rs. 18000 for apartment rent in March on Mar 1st",Expense,Rent
+"Photography session payment received ₹8000 on Mar 14th",Income,Freelance
+"Spent INR 320 on medicine for fever on Mar 15th",Expense,Medical
+"Paid Rs. 60 for auto rickshaw to market on Mar 16th",Expense,Transport
+"Paid ₹2900 for Coursera data science subscription on Mar 17th",Expense,Education
+"Defective product refund INR 1800 received on Mar 18th",Income,Refund
+"Spent Rs. 500 on Teacher's day gift on Mar 19th",Expense,Gifts
+"Invested ₹10000 in cryptocurrency on Mar 20th",Expense,Investments
+"Spent INR 900 on chicken and fish from market on Mar 21st",Expense,Groceries
+"Paid Rs. 240 for ice cream treat for kids on Mar 22nd",Expense,Food
+"Paid ₹1500 for society maintenance charges on Mar 23rd",Expense,Utilities
+"Quarterly bonus credited INR 20000 from employer on Mar 31st",Income,Salary
+"Received Rs. 9500 from social media marketing project on Mar 24th",Income,Freelance
+"Paid ₹250 for vaccination at health center on Mar 25th",Expense,Medical
+"Spent INR 500 on petrol for bike travel on Mar 26th",Expense,Transport
+"Paid Rs. 1200 for Photoshop tutorial course on Mar 27th",Expense,Education
+"Overcharged amount refund ₹300 received on Mar 28th",Income,Refund
+"Spent INR 800 on Rakhi gift for brother on Mar 29th",Expense,Gifts
+"Monthly recurring deposit Rs. 3000 on Mar 30th",Expense,Investments
+"Spent ₹450 on spices and condiments on Apr 1st",Expense,Groceries
+"Paid INR 150 for smoothie at juice center on Apr 2nd",Expense,Food
+"Paid Rs. 400 for cable TV monthly bill on Apr 3rd",Expense,Utilities
+"Spent ₹2200 on concert tickets for music event on Apr 4th",Expense,Entertainment
+"Received INR 15000 from database design project on Apr 5th",Income,Freelance
+"Paid Rs. 8500 for health insurance premium on Apr 6th",Expense,Medical
+"Spent ₹18000 on flight booking for family vacation on Apr 7th",Expense,Travel
+"Paid INR 800 for Excel masterclass online course on Apr 8th",Expense,Education
+"Hotel booking cancellation refund Rs. 4500 received on Apr 9th",Income,Refund
+"Spent ₹2000 on Valentine's day gift on Feb 14th",Expense,Gifts
+"Invested INR 50000 in NSC certificate on Apr 10th",Expense,Investments
+"Spent Rs. 1800 on rice and pulses bulk purchase on Apr 11th",Expense,Groceries
+"Paid ₹1200 for dinner buffet at restaurant on Apr 12th",Expense,Food
+"Paid INR 200 for sewage treatment monthly charge on Apr 13th",Expense,Utilities
+"Festival advance credited Rs. 10000 from office on Apr 14th",Income,Salary
+"Received ₹22000 from UI/UX design project on Apr 15th",Income,Freelance
+"Paid INR 800 for dermatologist consultation on Apr 16th",Expense,Medical
+"Paid Rs. 2500 for hotel stay during business trip on Apr 17th",Expense,Travel
+"Paid ₹15000 for programming bootcamp enrollment on Apr 18th",Expense,Education
+"Amazon Prime subscription refund INR 999 received on Apr 19th",Income,Refund
+"Contributed Rs. 300 for office farewell gift on Apr 20th",Expense,Gifts
+"Invested ₹30000 in equity shares purchase on Apr 21st",Expense,Investments
+"Spent INR 350 on household cleaning supplies on Apr 22nd",Expense,Groceries
+"Paid Rs. 420 for fast food meal at KFC on Apr 23rd",Expense,Food
+"Paid ₹800 for water tanker supply charge on Apr 24th",Expense,Utilities
+"Performance incentive credited INR 5000 on Apr 25th",Income,Salary
+"Received Rs. 40000 from e-commerce website development on Apr 26th",Income,Freelance
+"Paid ₹3500 for annual health checkup package on Apr 27th",Expense,Medical
+"Paid INR 350 for taxi fare to conference venue on Apr 28th",Expense,Transport
+"Paid Rs. 2500 for digital marketing certification on Apr 29th",Expense,Education
+"Wrong debit reversal refund ₹1500 received on Apr 30th",Income,Refund
+"Spent INR 5000 on new year gift for family on Jan 1st",Expense,Gifts
+"Paid Rs. 12000 for Unit Linked Insurance premium on May 1st",Expense,Investments
+"Spent ₹720 on fresh produce from organic store on May 2nd",Expense,Groceries
+"Paid INR 280 for lunch combo at food court on May 3rd",Expense,Food
+"Paid Rs. 100 for garbage collection monthly fee on May 4th",Expense,Utilities
+"Stock bonus shares allotment credited ₹8000 on May 5th",Income,Salary
+"Received INR 4000 from blog writing project on May 6th",Income,Freelance
+"Paid Rs. 2200 for chronic medication pharmacy bill on May 7th",Expense,Medical
+"Paid ₹500 for metro card recharge on May 8th",Expense,Transport
+"Paid INR 3500 for cloud computing course on May 9th",Expense,Education
+"Clothing return refund Rs. 1600 received on May 10th",Income,Refund
+"Spent ₹3000 on graduation gift for nephew on May 11th",Expense,Gifts
+"Paid INR 6000 for term insurance premium on May 12th",Expense,Investments
+"Spent Rs. 200 on bakery items for breakfast on May 13th",Expense,Groceries
+"Paid ₹450 for biryani order for weekend lunch on May 14th",Expense,Food
+"Paid INR 1000 for apartment parking rent monthly on May 15th",Expense,Utilities
+"Overtime payment credited Rs. 3500 from company on May 16th",Income,Salary
+"Received ₹7000 from video editing project on May 17th",Income,Freelance
+"Spent INR 1800 on insulin and diabetes supplies on May 18th",Expense,Medical
+"Paid Rs. 300 for bus ticket for weekend trip on May 19th",Expense,Transport
+"Paid ₹600 for foreign language app subscription on May 20th",Expense,Education
+"Gym membership cancellation refund INR 1500 received on May 21st",Income,Refund
+"Spent Rs. 4500 on marriage anniversary gift on May 22nd",Expense,Gifts
+"Monthly SIP ₹8000 invested on May 23rd",Expense,Investments
+"Spent INR 650 on frozen foods and ready meals on May 24th",Expense,Groceries
+"Paid Rs. 90 for street vendor chat and snacks on May 25th",Expense,Food
+"Paid ₹500 for monthly parking fee on May 26th",Expense,Utilities
+"Freelance writing income credited INR 12000 on May 27th",Income,Freelance
+"Paid Rs. 25000 as security deposit for rented house on May 28th",Expense,Rent
+"Paid ₹4500 for MRI scan at imaging center on May 29th",Expense,Medical
+"Spent INR 2000 on fuel for long distance drive on May 30th",Expense,Transport
+"Paid Rs. 1800 for professional certification exam on May 31st",Expense,Education
+"Duplicate order cancellation refund ₹750 received on Jun 1st",Income,Refund
+"Paid INR 2000 as festival bonus for domestic help on Jun 2nd",Expense,Gifts
+"Invested Rs. 100000 in corporate bonds on Jun 3rd",Expense,Investments
+"Spent ₹800 on party snacks and beverages on Jun 4th",Expense,Groceries
+"Paid INR 3200 for fine dining restaurant bill on Jun 5th",Expense,Food
+"Paid Rs. 2000 for broadband internet installation on Jun 6th",Expense,Utilities
+"Project milestone payment received ₹28000 on Jun 7th",Income,Freelance
+"Paid INR 2500 for cardiology consultation and tests on Jun 8th",Expense,Medical
+"Paid Rs. 1800 for rental car for outstation trip on Jun 9th",Expense,Travel
+"Paid ₹8500 for machine learning course enrollment on Jun 10th",Expense,Education
+"Service tax refund received INR 1200 from government on Jun 11th",Income,Refund
+"Spent Rs. 600 on teacher appreciation gift on Jun 12th",Expense,Gifts
+"Mutual fund redemption credited ₹45000 on Jun 13th",Income,Investments
+"Spent INR 1200 on imported grocery items online on Jun 14th",Expense,Groceries
+"Paid Rs. 320 for cappuccino and pastry at cafe on Jun 15th",Expense,Food
+"Paid ₹800 for monthly house cleaning service on Jun 16th",Expense,Household
+"Year-end bonus credited INR 25000 from employer on Jun 30th",Income,Salary
+"Received Rs. 18000 from Android app development on Jun 17th",Income,Freelance
+"Spent ₹3500 on physiotherapy equipment purchase on Jun 18th",Expense,Medical
+"Paid INR 150 for airport shuttle bus fare on Jun 19th",Expense,Transport
+"Paid Rs. 4200 for cybersecurity course certification on Jun 20th",Expense,Education
+"Insurance claim settlement refund ₹15000 received on Jun 21st",Income,Refund
+"Spent INR 1200 on Holi celebration gift hamper on Mar 8th",Expense,Gifts
+"Bank fixed deposit renewal Rs. 200000 on Jun 22nd",Expense,Investments
+"Spent ₹1100 on weekly meat and seafood purchase on Jun 23rd",Expense,Groceries
+"Paid INR 380 for food delivery from Swiggy on Jun 24th",Expense,Food
+"Paid Rs. 300 for elevator maintenance monthly charge on Jun 25th",Expense,Utilities
+"Commission payment credited ₹9500 for sales on Jun 26th",Income,Salary
+"Received INR 12000 from brand identity design project on Jun 27th",Income,Freelance
+"Paid Rs. 1500 for orthopedic consultation and treatment on Jun 28th",Expense,Medical
+"Paid ₹450 for highway toll charges during trip on Jun 29th",Expense,Transport
+"Paid INR 2200 for data analytics workshop on Jul 1st",Expense,Education
+"Subscription cancellation refund Rs. 899 received on Jul 2nd",Income,Refund
+"Spent ₹2500 on Mother's day special gift on May 14th",Expense,Gifts
+"Contributed INR 50000 to Public Provident Fund on Jul 3rd",Expense,Investments
+"Spent Rs. 400 on dairy products weekly supply on Jul 4th",Expense,Groceries
+"Paid ₹4500 for gourmet meal at 5-star hotel on Jul 5th",Expense,Food
+"Paid INR 600 for generator fuel monthly expense on Jul 6th",Expense,Utilities
+"Consulting retainer fee received Rs. 30000 on Jul 7th",Income,Freelance
+"Spent ₹1200 on premium skincare products on Jul 8th",Expense,Shopping
+"Paid INR 2800 for home theater system installation on Jul 9th",Expense,Household
+"Spent Rs. 750 on pet grooming services on Jul 10th",Expense,Household
+"Paid ₹1600 for designer clothing purchase on Jul 11th",Expense,Shopping
+"Spent INR 3200 on furniture for new apartment on Jul 12th",Expense,Household
+"Paid Rs. 950 for premium car wash service on Jul 13th",Expense,Transport
+"Spent ₹2100 on electronics accessories on Jul 14th",Expense,Shopping
+"Paid INR 1400 for home security system monthly fee on Jul 15th",Expense,Household

@@ -8,9 +8,10 @@ const incomeController = {
     const userId = req.user.id; // Get user ID from the request
     try {
       const { icon, source, amount, date } = req.body; // Destructure the request body
-      if (!icon || !source || !amount || !date) {
-        return res.status(400).json({ message: "Please fill all fields" });
-      }
+      if (!source || !amount || !date) { // Removed !icon check
+  return res.status(400).json({ message: "Please fill all required fields" });
+}
+
 
       const newIncome = await Income.create({
         userId,

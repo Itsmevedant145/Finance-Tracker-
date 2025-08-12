@@ -43,5 +43,8 @@ export const API_Path = {
     DELETE_BUDGET: (id) => `/api/v1/budget/${id}`,
     UPDATE_CATEGORY_SPENDING: (categoryId) => `/api/v1/budget/category/${categoryId}/spend`,
   },
+  AI_Integeration: {
+    PARSE_TRANSACTIONS: '/api/v1/parse-transactions',
+  },
 
 };
