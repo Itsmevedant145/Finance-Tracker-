@@ -11,7 +11,7 @@ import { addThousandSeparator } from '../../utils/helper';
 import RecentTransactions from '../../components/Dashboard/RecentTransactions';
 import FinanceOverveiw from '../../components/Dashboard/FinanceOverveiw';
 import ExpenseTranscations from '../../components/Dashboard/ExpenseTranscations';
-import Last30daysExpense from '../../components/Dashboard/last30daysExpense';
+import Last30daysExpense from '../../components/Dashboard/Last30daysExpense';
 import RecentIncomeWithCharts from '../../components/Dashboard/RecentIncomeWithCharts';
 import RecentIncome from '../../components/Dashboard/RecentIncome';
 import QuoteGate from '../../components/Dashboard/ModernQuoteGate'; // Import QuoteGate component
