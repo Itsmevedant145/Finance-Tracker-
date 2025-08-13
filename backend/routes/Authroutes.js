@@ -24,5 +24,9 @@ router.post("/upload-image", upload.single("image"), (req, res) => {
   const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
   res.status(200).json({ imageUrl });
 });
+router.get("/test", (req, res) => {
+  res.json({ message: "Auth route is live!" });
+});
+
 
 module.exports = router;
