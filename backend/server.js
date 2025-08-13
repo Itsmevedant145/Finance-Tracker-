@@ -17,13 +17,24 @@ const insightsRoutes = require('./routes/insightsRoutes');
 const app = express();
 
 // CORS configuration
+// CORS configuration
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173", // for local development
+      "https://finance-tracker-frontend-s41f.onrender.com" // your deployed frontend URL
+    ],
     credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization", "Accept", "accepted", "X-Requested-With"]
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Accept",
+      "accepted",
+      "X-Requested-With"
+    ]
   })
 );
+
 
 // Middleware to parse incoming JSON data
 app.use(express.json());
