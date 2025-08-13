@@ -11,7 +11,7 @@ import Home from './pages/DashBoard/Home';
 import Income from './pages/DashBoard/Income';
 import Expense from './pages/DashBoard/Expense';
 
-import { UserProvider } from './context/userContext';
+import { UserProvider } from './context/UserContext';
 
 // ✅ Use ToastContainer from react-toastify
 import { ToastContainer } from 'react-toastify';
