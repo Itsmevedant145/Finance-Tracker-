@@ -144,4 +144,5 @@ The application should now be running at `http://localhost:3000`
 - Mobile application
 
 ## Contributors
-- [Your Name](https://github.com/Itsmevedant145
+- Vedant Bhuskat (https://github.com/Itsmevedant145)
+  
