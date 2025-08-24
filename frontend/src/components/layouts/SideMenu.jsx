@@ -2,9 +2,10 @@ import React, { useContext, useState } from 'react';
 import { SIDE_MENU_DATA } from '../../utils/data';
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
-import './SideMenu.css';
 import { CharAvatar } from '../cards/CharAvatar';
 import { useUserAuth } from '../../hooks/useUserAuth';
+import { HiRefresh } from 'react-icons/hi'; // fixed import
+
 
 const SideMenu = ({ activeMenu }) => {
   useUserAuth(); 
@@ -28,14 +29,14 @@ const SideMenu = ({ activeMenu }) => {
 
   return (
     <>
-      <div className="container">
+      <div className="flex flex-col items-center p-6 bg-white shadow-lg rounded-lg w-64 space-y-6">
         {/* Avatar */}
-        <div className="user-section">
+        <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-green-600 shadow-md">
           {user?.profileImageUrl ? (
             <img
               src={user.profileImageUrl}
               alt="Profile"
-              className="user-image"
+              className="w-full h-full object-cover"
             />
           ) : (
             <CharAvatar fullname={user?.fullname || "Guest"} />
@@ -43,19 +44,27 @@ const SideMenu = ({ activeMenu }) => {
         </div>
 
         {/* Username */}
-        <div className="username">{user?.fullname || "Guest"}</div>
+        <div className="text-xl font-semibold text-gray-800">{user?.fullname || "Guest"}</div>
 
         {/* Menu Items */}
-        {SIDE_MENU_DATA.map((item, index) => (
-          <button
-            key={`menu_${index}`}
-            className={`menu-btn ${activeMenu === item.label ? 'active' : ''}`}
-            onClick={() => handleClick(item.path)}
-          >
-            <item.icon className="menu-icon" />
-            <span className="menu-label">{item.label}</span>
-          </button>
-        ))}
+        <nav className="flex flex-col w-full space-y-2">
+          {SIDE_MENU_DATA.map((item, index) => (
+            <button
+              key={`menu_${index}`}
+              onClick={() => handleClick(item.path)}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg transition
+                ${
+                  activeMenu === item.label 
+                    ? 'bg-green-600 text-white shadow-md' 
+                    : 'text-gray-700 hover:bg-green-100 hover:text-green-700'
+                }`}
+            >
+              <item.icon className="w-6 h-6" />
+              <span className="text-md font-medium">{item.label}</span>
+            </button>
+          ))}
+
+        </nav>
       </div>
 
       {/* Logout Confirmation Modal */}
@@ -72,15 +81,14 @@ const SideMenu = ({ activeMenu }) => {
                 Cancel
               </button>
               <button
-  className="px-4 py-2 text-sm bg-white text-red-600 border border-red-500 hover:bg-red-600 hover:text-white rounded-lg transition"
-  onClick={() => {
-    handleLogout();
-    setShowLogoutConfirm(false);
-  }}
->
-  Logout
-</button>
-
+                className="px-4 py-2 text-sm bg-white text-red-600 border border-red-500 hover:bg-red-600 hover:text-white rounded-lg transition"
+                onClick={() => {
+                  handleLogout();
+                  setShowLogoutConfirm(false);
+                }}
+              >
+                Logout
+              </button>
             </div>
           </div>
         </div>

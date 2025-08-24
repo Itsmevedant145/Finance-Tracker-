@@ -1,14 +1,13 @@
-// utils/axiosinstance.js
 import axios from 'axios';
 import { API_BASE_URL as BASE_URL } from './apiPath';
 
 const axiosInstance = axios.create({
-  baseURL: BASE_URL,
+  baseURL: BASE_URL,  // e.g. http://localhost:8000/api/v1 or production URL
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
   },
-  timeout: 10000, // optional, 10 seconds timeout
+  timeout: 10000,
 });
 
 // Request interceptor: add token
@@ -31,10 +30,9 @@ axiosInstance.interceptors.response.use(
       const status = error.response.status;
 
       if (status === 401) {
-        // 🔹 Token invalid or expired — log out user
         localStorage.removeItem('token');
-        localStorage.removeItem('user'); // if you store user data
-        window.location.href = '/login'; // force redirect
+        localStorage.removeItem('user');
+        window.location.href = '/login';
       } else if (status === 500) {
         console.error('Server error:', error.response.data);
         alert('Server error. Please try again later.');
@@ -42,9 +40,14 @@ axiosInstance.interceptors.response.use(
     } else if (error.code === 'ECONNABORTED') {
       alert('Request timed out. Please try again.');
     }
-
     return Promise.reject(error);
   }
 );
+
+// Debug log for all requests
+axiosInstance.interceptors.request.use(config => {
+  console.log("➡️ Axios Request URL:", config.baseURL + config.url);
+  return config;
+});
 
 export default axiosInstance;

@@ -12,7 +12,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, QCsetShowPassword] = useState(false);
 
   const { updateUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -38,8 +38,16 @@ function Login() {
 
       if (token) {
         localStorage.setItem("token", token);
-        updateUser(user);
+        
+        // Only update user context if user data is provided
+        if (user) {
+          updateUser(user);
+        }
+        // If no user data, UserContext will automatically fetch it
+        
         navigate("/dashboard");
+      } else {
+        setError("Login failed: No token received");
       }
     } catch (error) {
       setError(

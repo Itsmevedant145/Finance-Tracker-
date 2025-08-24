@@ -1,41 +1,40 @@
-// utils/apiPath.js
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
 
 export const API_Path = {
   AUTH: {
-    LOGIN: '/api/v1/auth/login',
-    REGISTER: '/api/v1/auth/register',
-    GET_USER_INFO: '/api/v1/auth/getuser',
+    LOGIN: '/auth/login',
+    REGISTER: '/auth/register',
+    GET_USER_INFO: '/auth/getuser',
   },
   DASHBOARD: {
-    GET_USER_DATA: '/api/v1/dashboard',
+    GET_USER_DATA: '/dashboard',
   },
   INCOME: {
-    ADD_INCOME: '/api/v1/income/add',
-    GET_ALL_INCOME: '/api/v1/income/getall',
-    DELETE_INCOME: (incomeId) => `/api/v1/income/${incomeId}`,
-    DOWNLOAD_INCOME: '/api/v1/income/downloadexcel',
+    ADD_INCOME: '/income/add',
+    GET_ALL_INCOME: '/income/getall',
+    DELETE_INCOME: (incomeId) => `/income/${incomeId}`,
+    DOWNLOAD_INCOME: '/income/downloadexcel',
   },
   EXPENSE: {
-    ADD_EXPENSE: '/api/v1/expense/add',
-    GET_ALL_EXPENSE: '/api/v1/expense/getall',
-    DELETE_EXPENSE: (expenseId) => `/api/v1/expense/${expenseId}`,
-    DOWNLOAD_EXPENSE: '/api/v1/expense/downloadexcel',
+    ADD_EXPENSE: '/expense/add',
+    GET_ALL_EXPENSE: '/expense/getall',
+    DELETE_EXPENSE: (expenseId) => `/expense/${expenseId}`,
+    DOWNLOAD_EXPENSE: '/expense/downloadexcel',
   },
   IMAGE: {
-    UPLOAD_IMAGE: '/api/v1/auth/upload-image',
+    UPLOAD_IMAGE: '/auth/upload-image',
   },
   SPENDINGINSIGHTS: {
-    GET_INSIGHTS: '/api/v1/insights/spending-insights',
+    GET_INSIGHTS: '/insights/spending-insights',
   },
   BUDGET: {
-    CREATE_BUDGET: '/api/v1/budget',
-    GET_ALL_BUDGETS: '/api/v1/budget',
-    GET_BUDGET_BY_ID: (id) => `/api/v1/budget/${id}`,
-    DELETE_BUDGET: (id) => `/api/v1/budget/${id}`,
-    UPDATE_CATEGORY_SPENDING: (categoryId) => `/api/v1/budget/category/${categoryId}/spend`,
+    CREATE_BUDGET: '/budget',
+    GET_ALL_BUDGETS: '/budget',
+    GET_BUDGET_BY_ID: (id) => `/budget/${id}`,
+    DELETE_BUDGET: (id) => `/budget/${id}`,
+    UPDATE_CATEGORY_SPENDING: (categoryId) => `/budget/category/${categoryId}/spend`,
   },
   AI_Integeration: {
-    PARSE_TRANSACTIONS: '/api/v1/parse-transactions',
+    PARSE_TRANSACTIONS: '/parse-transactions',
   },
 };

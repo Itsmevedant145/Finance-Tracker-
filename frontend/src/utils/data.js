@@ -4,6 +4,7 @@ import {
     LuWalletMinimal,
     LuLogOut,
 } from "react-icons/lu";
+import { HiRefresh } from "react-icons/hi"; // added icon for Recurring
 
 export const SIDE_MENU_DATA = [
     {
@@ -15,7 +16,7 @@ export const SIDE_MENU_DATA = [
     {
         id: "02",
         label: "Income",
-        icon: LuHandCoins, // corrected here!
+        icon: LuHandCoins,
         path: "/income",
     },
     {
@@ -23,6 +24,12 @@ export const SIDE_MENU_DATA = [
         label: "Expense",
         icon: LuWalletMinimal,
         path: "/expense",
+    },
+    {
+        id: "04",
+        label: "Recurring Transactions",
+        icon: HiRefresh,  // new menu icon
+        path: "/recurring-transactions", // new route
     },
     {
         id: "06",
