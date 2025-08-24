@@ -34,7 +34,7 @@ function App() {
             <Route path="/dashboard" element={<Home />} />
             <Route path="/income" element={<Income />} />
             <Route path="/expense" element={<Expense />} />
-            <Route path="/recurring-transactions" element={<RecurringTransactions />} />
+            {/* <Route path="/recurring-transactions" element={<RecurringTransactions />} /> */}
           </Route>
 
           {/* Catch-all route to redirect unknown routes */}

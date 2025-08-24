@@ -10,7 +10,7 @@ const incomeroutes = require("./routes/Incomeroutes");
 const nlpRoutes = require('./routes/nlp');
 const expenseRoutes = require("./routes/expenseRoutes");
 const dashboardroutes = require("./routes/dashboardroutes");
-const insightsRoutes = require('./routes/insightsRoutes');
+//const insightsRoutes = require('./routes/insightsRoutes');
   // Ensure this import is correct
 
 
@@ -51,7 +51,7 @@ app.use("/api/v1/insights", insightsRoutes);
 // Static file serving for uploads
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-app.use('/api/v1', nlpRoutes);
+//app.use('/api/v1', nlpRoutes);
 
 
 // Start the server on specified port

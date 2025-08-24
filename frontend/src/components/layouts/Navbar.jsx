@@ -111,7 +111,7 @@ const Navbar = ({ toggleSidebar, sidebarOpen }) => {
         </div>
 
         <div className="navbar-right flex items-center gap-4">
-          <AIAssistButton onClick={() => setShowModal(true)} />
+          {/* <AIAssistButton onClick={() => setShowModal(true)} /> */}
         </div>
       </div>
 
