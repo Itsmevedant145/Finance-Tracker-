@@ -15,7 +15,7 @@ exports.registerUser = async (req, res) => {
   }
 
   try {
-    const existingUser = await User.findOne({ email }); // ✅ Fixed syntax
+    const existingUser = await User.findOne({ email });
 
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
@@ -29,20 +29,19 @@ exports.registerUser = async (req, res) => {
     });
 
     res.status(201).json({
-      _id: user._id,
-      fullname: user.fullname,
-      email: user.email,
-      profileImageUrl: user.profileImageUrl,
-      token: generateToken(user._id), // ✅ Fixed function name
+      token: generateToken(user._id),
+      user: {
+        _id: user._id,
+        fullname: user.fullname,
+        email: user.email,
+        profileImageUrl: user.profileImageUrl || "",
+      },
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Server error", error: error.message });
+    res.status(500).json({ message: "Server error", error: error.message });
   }
 };
 
-// Placeholder endpoints for login and user info
 exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -52,24 +51,24 @@ exports.loginUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
-    
+
     if (!user || !(await user.matchPassword(password))) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
     res.status(200).json({
-      _id: user._id,
-      fullname: user.fullname,  // Make sure this is included in the response
-      email: user.email,
-      profileImageUrl: user.profileImageUrl || "",  // Optional field
       token: generateToken(user._id),
+      user: {
+        _id: user._id,
+        fullname: user.fullname,
+        email: user.email,
+        profileImageUrl: user.profileImageUrl || "",
+      },
     });
-
   } catch (error) {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
-
 
 exports.getuserInfo = async (req, res) => {
   try {
@@ -78,10 +77,7 @@ exports.getuserInfo = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
     res.status(200).json(user);
-
-  }
-  catch (error) {
+  } catch (error) {
     res.status(500).json({ message: "Server error", error: error.message });
   }
-
 };
