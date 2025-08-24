@@ -10,7 +10,7 @@ const incomeroutes = require("./routes/Incomeroutes");
 const nlpRoutes = require('./routes/nlp');
 const expenseRoutes = require("./routes/expenseRoutes");
 const dashboardroutes = require("./routes/dashboardroutes");
-//const insightsRoutes = require('./routes/insightsRoutes');
+const insightsRoutes = require('./routes/insightsRoutes');
   // Ensure this import is correct
 
 
