@@ -25,12 +25,7 @@ export const SIDE_MENU_DATA = [
         icon: LuWalletMinimal,
         path: "/expense",
     },
-    {
-        id: "04",
-        label: "Recurring Transactions",
-        icon: HiRefresh,  // new menu icon
-        path: "/recurring-transactions", // new route
-    },
+    
     {
         id: "06",
         label: "Logout",
