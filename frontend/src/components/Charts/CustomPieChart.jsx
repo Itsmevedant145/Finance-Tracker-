@@ -5,44 +5,44 @@ import {
   Cell,
   ResponsiveContainer,
   Tooltip,
-  Legend,
 } from 'recharts';
 import CustomTooltip from './CustomTooltip';
-import CustomLegend from './CustomLegend';
 
 const CustomPieChart = ({
   data = [],
   label,
   totalAmount,
   colors,
-  showTextAnchor, // can keep this prop but won't be used now
 }) => {
   if (!data || data.length === 0) {
-    return <div>No data available</div>;
+    return <div style={{ textAlign: 'center', fontSize: '14px' }}>No data available</div>;
   }
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
-      <PieChart>
-  <Pie
-    data={data}
-    dataKey="amount"
-    nameKey="name"
-    cx="50%"
-    cy="50%"
-    outerRadius={130}
-    innerRadius={100}
-    labelLine={false}
-  >
-    {data.map((entry, index) => (
-      <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-    ))}
-  </Pie>
-  <Tooltip content={<CustomTooltip />} />
-  {/* Remove Legend here */}
-</PieChart>
-
-    </ResponsiveContainer>
+    <div style={{ width: '100%', maxWidth: '500px', margin: '0 auto' }}>
+      <ResponsiveContainer
+        width="100%"
+        height={window.innerWidth < 480 ? 220 : 300} // smaller height on mobile
+      >
+        <PieChart>
+          <Pie
+            data={data}
+            dataKey="amount"
+            nameKey="name"
+            cx="50%"
+            cy="50%"
+            outerRadius={window.innerWidth < 480 ? 80 : 130}
+            innerRadius={window.innerWidth < 480 ? 60 : 100}
+            labelLine={false}
+          >
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+            ))}
+          </Pie>
+          <Tooltip content={<CustomTooltip />} />
+        </PieChart>
+      </ResponsiveContainer>
+    </div>
   );
 };
 
