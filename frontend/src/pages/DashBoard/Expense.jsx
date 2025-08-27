@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useUserAuth } from '../../hooks/useUserAuth';
-import DashboardLayout from '../../components/layouts/DashoboardLayout';
+import DashboardLayout from '../../components/layouts/DashboardLayout';
 import { API_Path } from '../../utils/apiPath';
 import axiosInstance from '../../utils/axiosinstance';
 import { toast } from 'react-toastify';

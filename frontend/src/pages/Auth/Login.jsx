@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Lock } from 'lucide-react'; 
 import { Link, useNavigate } from 'react-router-dom';
 import AuthLayout from '../../components/layouts/AuthLayout';
 import Inputs from '../../components/layouts/inputs/Inputs';
@@ -12,7 +13,6 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
 
   const { updateUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -38,13 +38,11 @@ function Login() {
 
       if (token) {
         localStorage.setItem("token", token);
-        
-        // Only update user context if user data is provided
+
         if (user) {
           updateUser(user);
         }
-        // If no user data, UserContext will automatically fetch it
-        
+
         navigate("/dashboard");
       } else {
         setError("Login failed: No token received");
@@ -80,24 +78,16 @@ function Login() {
               type="email"
               icon="📧"
             />
-            
-            <div className="relative">
-              <Inputs
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                label="Password"
-                placeholder="Enter your password"
-                type={showPassword ? 'text' : 'password'}
-                icon="🔒"
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-9 text-gray-500 hover:text-gray-700 transition-colors"
-              >
-                {showPassword ? '👁️' : '👁️‍🗨️'}
-              </button>
-            </div>
+
+            {/* ✅ Fixed: Using Lock icon instead of Eye */}
+            <Inputs
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              label="Password"
+              placeholder="Enter your password"
+              type="password"
+              icon={<Lock className="w-5 h-5" />}
+            />
           </div>
 
           {error && (

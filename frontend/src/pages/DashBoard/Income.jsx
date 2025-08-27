@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import DashboardLayout from '../../components/layouts/DashoboardLayout'; // intentional name
+import DashboardLayout from '../../components/layouts/DashboardLayout'; // intentional name
 import IncomeOverview from '../../components/Income/IncomeOverview';
 import axiosInstance from '../../utils/axiosinstance';
 import { API_Path } from '../../utils/apiPath';
