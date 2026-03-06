@@ -33,72 +33,72 @@ const Navbar = ({ toggleSidebar, sidebarOpen }) => {
           </button>
 
           <div className="navbar-brand flex items-center gap-3" style={{ userSelect: 'none' }}>
-            {/* Icon with refined gradients and highlight */}
-            <svg
-  viewBox="0 0 100 100"
-  xmlns="http://www.w3.org/2000/svg"
-  width="100"
-  height="80"
-  style={{ display: 'block' }}
->
+           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="pieGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#ff8a65" />
-      <stop offset="100%" stopColor="#f4511e" />
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style={{ stopColor: "#6366F1", stopOpacity: 1 }} />
+      <stop offset="100%" style={{ stopColor: "#8B5CF6", stopOpacity: 1 }} />
     </linearGradient>
-    <linearGradient id="pieGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#4db6ac" />
-      <stop offset="100%" stopColor="#00796b" />
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style={{ stopColor: "#10B981", stopOpacity: 1 }} />
+      <stop offset="100%" style={{ stopColor: "#059669", stopOpacity: 1 }} />
     </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="1.5" floodColor="#2e7d32" floodOpacity="0.7" />
-    </filter>
   </defs>
 
-  {/* Left half (red) */}
+  {/* Rounded Square Background */}
+  <rect x="20" y="20" width="160" height="160" rx="40" fill="url(#grad1)" />
+
+  {/* Dollar Sign (Subtle, integrated) */}
+  <g opacity="0.15">
+    <rect x="97" y="40" width="6" height="45" rx="3" fill="#FFFFFF" />
+    <path
+      d="M 85 55 Q 82 55 82 58 Q 82 61 85 61 L 110 61 Q 115 61 115 66 Q 115 71 110 71 L 85 71"
+      fill="none"
+      stroke="#FFFFFF"
+      strokeWidth="8"
+      strokeLinecap="round"
+    />
+  </g>
+
+  {/* Chart Bars */}
+  <g opacity="0.9">
+    {/* Bar 1 */}
+    <rect x="45" y="110" width="20" height="50" rx="10" fill="#FFFFFF" opacity="0.3" />
+    {/* Bar 2 */}
+    <rect x="72" y="90" width="20" height="70" rx="10" fill="#FFFFFF" opacity="0.5" />
+    {/* Bar 3 */}
+    <rect x="99" y="70" width="20" height="90" rx="10" fill="#FFFFFF" opacity="0.7" />
+    {/* Bar 4 (Highlighted) */}
+    <rect x="126" y="50" width="20" height="110" rx="10" fill="url(#grad2)" />
+  </g>
+
+  {/* Money symbols on bars */}
+  <text x="55" y="130" fontFamily="Arial, sans-serif" fontSize="14" fill="#6366F1" opacity="0.6" fontWeight="bold">$</text>
+  <text x="82" y="110" fontFamily="Arial, sans-serif" fontSize="14" fill="#6366F1" opacity="0.7" fontWeight="bold">$</text>
+  <text x="109" y="90" fontFamily="Arial, sans-serif" fontSize="14" fill="#6366F1" opacity="0.8" fontWeight="bold">$</text>
+  <text x="136" y="70" fontFamily="Arial, sans-serif" fontSize="16" fill="#FFFFFF" fontWeight="bold">$</text>
+
+  {/* Trend Line */}
   <path
-    d="M 50 15
-       A 35 35 0 0 1 50 85
-       L 50 50 Z"
-    fill="url(#pieGrad1)"
-    stroke="#fff"
-    strokeWidth="2"
+    d="M 50 120 L 77 100 L 104 80 L 131 58"
+    stroke="#FFFFFF"
+    strokeWidth="3"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    opacity="0.8"
   />
 
-  {/* Right half (blue) */}
-  <path
-    d="M 50 85
-       A 35 35 0 0 1 50 15
-       L 50 50 Z"
-    fill="url(#pieGrad2)"
-    stroke="#fff"
-    strokeWidth="2"
-  />
+  {/* Circle at end of trend */}
+  <circle cx="131" cy="58" r="5" fill="#10B981" />
+  <circle cx="131" cy="58" r="3" fill="#FFFFFF" />
 
-  {/* Center circle */}
-  <circle
-    cx="50"
-    cy="50"
-    r="15"
-    fill="#fff"
-    stroke="#ccc"
-    strokeWidth="1.5"
-  />
-
-  {/* Perfectly centered ₹ */}
-  <text
-    x="50"
-    y="50"
-    textAnchor="middle"
-    dominantBaseline="central"
-    fill="#2e7d32"
-    fontFamily="Arial, sans-serif"
-    fontSize="26"
-    fontWeight="bold"
-    filter="url(#glow)"
-  >
-    $
-  </text>
+  {/* Sparkle Effects */}
+  <g opacity="0.6">
+    <path d="M 155 45 L 157 47 L 159 45 L 157 43 Z" fill="#FFFFFF" />
+    <path d="M 148 65 L 149 66 L 150 65 L 149 64 Z" fill="#FFFFFF" />
+    <path d="M 40 50 L 42 52 L 44 50 L 42 48 Z" fill="#FFFFFF" />
+  </g>
 </svg>
 
 

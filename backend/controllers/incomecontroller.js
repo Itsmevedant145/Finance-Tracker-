@@ -1,17 +1,17 @@
-const xlsx = require("xlsx"); // Import the xlsx library for Excel file handling
+const ExcelJS = require("exceljs");
 const User = require("../models/User");
 const Income = require("../models/Income");
+const client = require("../config/redis"); // Redis client
 
 const incomeController = {
-  // Add income source
+  // Add income
   addIncome: async (req, res) => {
-    const userId = req.user.id; // Get user ID from the request
+    const userId = req.user.id;
     try {
-      const { icon, source, amount, date } = req.body; // Destructure the request body
-      if (!source || !amount || !date) { // Removed !icon check
-  return res.status(400).json({ message: "Please fill all required fields" });
-}
-
+      const { icon, source, amount, date } = req.body;
+      if (!source || !amount || !date) {
+        return res.status(400).json({ message: "Please fill all required fields" });
+      }
 
       const newIncome = await Income.create({
         userId,
@@ -21,86 +21,100 @@ const incomeController = {
         date
       });
 
-      await newIncome.save(); // Save the new income source to the database
-      res.status(200).json(newIncome); // Send the response back
+      // Invalidate Redis dashboard cache
+      await client.del(`dashboard:${userId}`);
+      console.log(`Redis cache for dashboard:${userId} deleted after adding income`);
+
+      res.status(200).json(newIncome);
     } catch (error) {
       res.status(500).json({ message: "Server error", error: error.message });
     }
   },
 
-  // Get all income
+  // Get all incomes
   getAllIncome: async (req, res) => {
-    // Your logic here
-    const userId = req.user.id; // Get user ID from the request
+    const userId = req.user.id;
     try {
-      const incomes = await Income.find({ userId }).sort({date : -1}); // Fetch all income sources for the user
-      res.status(200).json(incomes); // Send the response back
+      // Optional: check Redis cache for income list (testing)
+      const cachedIncomes = await client.get(`income:${userId}`);
+      if (cachedIncomes) {
+        console.log('Serving incomes from Redis cache');
+        return res.status(200).json(JSON.parse(cachedIncomes));
+      }
+
+      const incomes = await Income.find({ userId }).sort({ date: -1 });
+
+      // Cache incomes for 5 seconds (testing)
+      await client.setEx(`income:${userId}`, 5, JSON.stringify(incomes));
+
+      res.status(200).json(incomes);
     } catch (error) {
       res.status(500).json({ message: "Server error", error: error.message });
     }
-
   },
 
-  // Delete income source
-  // Delete income source
-deleteIncome: async (req, res) => {
-  const userId = req.user.id; // Get user ID from the request
-  try {
-      // Find the income that matches both the ID and the user ID
+  // Delete income
+  deleteIncome: async (req, res) => {
+    const userId = req.user.id;
+    try {
       const deletedIncome = await Income.findOneAndDelete({
-          _id: req.params.id,
-          userId: userId
+        _id: req.params.id,
+        userId
       });
-      
+
       if (!deletedIncome) {
-          return res.status(404).json({ message: "Income not found or you don't have permission to delete it" });
+        return res.status(404).json({ message: "Income not found or permission denied" });
       }
-      
+
+      // Invalidate Redis dashboard cache
+      await client.del(`dashboard:${userId}`);
+      console.log(`Redis cache for dashboard:${userId} deleted after deleting income`);
+
       res.status(200).json({ message: "Income deleted", deleted: deletedIncome });
-  } catch (error) {
+    } catch (error) {
       res.status(500).json({ message: "Server error", error: error.message });
-  }
-}
- ,
-  
-
-  // Download income source as Excel
-// Download income source as Excel
-// Download income source as Excel
-downloadIncomeExcel: async (req, res) => {
-  const userId = req.user.id;
-  try {
-    const income = await Income.find({ userId }).sort({ date: -1 });
-    
-    // Prepare the data for Excel
-    const data = income.map((item) => ({
-      Icon: item.icon,
-      Source: item.source,
-      Amount: item.amount,
-      Date: new Date(item.date).toLocaleDateString(),
-    }));
-    
-    // Generate Excel workbook in memory
-    const workbook = xlsx.utils.book_new();
-    const worksheet = xlsx.utils.json_to_sheet(data);
-    xlsx.utils.book_append_sheet(workbook, worksheet, "Income");
-    
-  xlsx.writeFile(workbook, "Income.xlsx"); // Write the workbook to a file
-  res.download("Income.xlsx", (err) => {
-    if (err) {
-      console.error("Error downloading file:", err);
-      res.status(500).json({ message: "File download error" });
-    } else {
-      console.log("File downloaded successfully");
     }
-  });
-   
+  },
 
-  } catch (error) {
-    console.error('Excel generation error:', error);
-    res.status(500).json({ message: "Server error", error: error.message });
+  // Download incomes as Excel
+  downloadIncomeExcel: async (req, res) => {
+    const userId = req.user.id;
+    try {
+      const incomes = await Income.find({ userId }).sort({ date: -1 });
+
+      const workbook = new ExcelJS.Workbook();
+      const worksheet = workbook.addWorksheet("Income");
+
+      worksheet.columns = [
+        { header: "Icon", key: "icon", width: 15 },
+        { header: "Source", key: "source", width: 20 },
+        { header: "Amount", key: "amount", width: 15 },
+        { header: "Date", key: "date", width: 15 }
+      ];
+
+      incomes.forEach(item => {
+        worksheet.addRow({
+          icon: item.icon,
+          source: item.source,
+          amount: item.amount,
+          date: new Date(item.date).toLocaleDateString()
+        });
+      });
+
+      const filePath = "Income.xlsx";
+      await workbook.xlsx.writeFile(filePath);
+
+      res.download(filePath, err => {
+        if (err) {
+          console.error("Error downloading file:", err);
+          res.status(500).json({ message: "File download error" });
+        }
+      });
+    } catch (error) {
+      console.error("Excel generation error:", error);
+      res.status(500).json({ message: "Server error", error: error.message });
+    }
   }
-}
 };
 
 module.exports = incomeController;

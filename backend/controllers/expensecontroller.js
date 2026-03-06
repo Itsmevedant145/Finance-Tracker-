@@ -1,29 +1,31 @@
-const xlsx = require("xlsx"); // Import the xlsx library for Excel file handling
+const ExcelJS = require("exceljs");
 const User = require("../models/User");
-const Expense = require("../models/Expense"); // Corrected model import
+const Expense = require("../models/Expense");
+const client = require("../config/redis"); // Redis client
 
 const expenseController = {
-  // Add expense source
+  // Add expense
   addExpense: async (req, res) => {
-    const userId = req.user.id; // Get user ID from the request
+    const userId = req.user.id;
     try {
-     // Destructure the request body
-      const { icon, category, amount, date } = req.body; // ✅ changed 'source' to 'category'
-      if (!category || !amount || !date) 
-        {
+      const { icon, category, amount, date } = req.body;
+      if (!category || !amount || !date) {
         return res.status(400).json({ message: "Please fill all fields" });
       }
-      
+
       const newExpense = await Expense.create({
         userId,
         icon,
-        category, // ✅
+        category,
         amount,
         date
       });
-      
 
-      res.status(200).json(newExpense); // Send the response back
+      // Invalidate Redis cache for this user's dashboard
+      await client.del(`dashboard:${userId}`);
+      console.log(`Redis cache for dashboard:${userId} deleted after adding expense`);
+
+      res.status(200).json(newExpense);
     } catch (error) {
       res.status(500).json({ message: "Server error", error: error.message });
     }
@@ -33,7 +35,18 @@ const expenseController = {
   getAllExpense: async (req, res) => {
     const userId = req.user.id;
     try {
-      const expenses = await Expense.find({ userId }).sort({ date: -1 }); // Fetch all expenses for the user
+      // Optional: Check Redis cache for expenses list (testing purpose)
+      const cachedExpenses = await client.get(`expenses:${userId}`);
+      if (cachedExpenses) {
+        console.log('Serving expenses from Redis cache');
+        return res.status(200).json(JSON.parse(cachedExpenses));
+      }
+
+      const expenses = await Expense.find({ userId }).sort({ date: -1 });
+
+      // Cache expenses for 5 seconds (testing)
+      await client.setEx(`expenses:${userId}`, 5, JSON.stringify(expenses));
+
       res.status(200).json(expenses);
     } catch (error) {
       res.status(500).json({ message: "Server error", error: error.message });
@@ -46,12 +59,16 @@ const expenseController = {
     try {
       const deletedExpense = await Expense.findOneAndDelete({
         _id: req.params.id,
-        userId: userId,
+        userId
       });
 
       if (!deletedExpense) {
-        return res.status(404).json({ message: "Expense not found or you don't have permission to delete it" });
+        return res.status(404).json({ message: "Expense not found or permission denied" });
       }
+
+      // Invalidate Redis cache for this user's dashboard
+      await client.del(`dashboard:${userId}`);
+      console.log(`Redis cache for dashboard:${userId} deleted after deleting expense`);
 
       res.status(200).json({ message: "Expense deleted", deleted: deletedExpense });
     } catch (error) {
@@ -65,32 +82,38 @@ const expenseController = {
     try {
       const expenses = await Expense.find({ userId }).sort({ date: -1 });
 
-      // Prepare the data for Excel
-      const data = expenses.map((item) => ({
-        Icon: item.icon,
-        Source: item.source,
-        Amount: item.amount,
-        Date: new Date(item.date).toLocaleDateString(),
-      }));
+      const workbook = new ExcelJS.Workbook();
+      const worksheet = workbook.addWorksheet("Expenses");
 
-      // Generate Excel workbook
-      const workbook = xlsx.utils.book_new();
-      const worksheet = xlsx.utils.json_to_sheet(data);
-      xlsx.utils.book_append_sheet(workbook, worksheet, "Expenses");
+      // Add header row
+      worksheet.columns = [
+        { header: "Icon", key: "icon", width: 15 },
+        { header: "Category", key: "category", width: 20 },
+        { header: "Amount", key: "amount", width: 15 },
+        { header: "Date", key: "date", width: 15 }
+      ];
 
-      const filePath = "Expense.xlsx"; // Safer to use a filepath
-      xlsx.writeFile(workbook, filePath);
+      // Add rows
+      expenses.forEach(item => {
+        worksheet.addRow({
+          icon: item.icon,
+          category: item.category,
+          amount: item.amount,
+          date: new Date(item.date).toLocaleDateString()
+        });
+      });
 
-      res.download(filePath, (err) => {
+      const filePath = "Expense.xlsx";
+      await workbook.xlsx.writeFile(filePath);
+
+      res.download(filePath, err => {
         if (err) {
           console.error("Error downloading file:", err);
           res.status(500).json({ message: "File download error" });
-        } else {
-          console.log("File downloaded successfully");
         }
       });
     } catch (error) {
-      console.error('Excel generation error:', error);
+      console.error("Excel generation error:", error);
       res.status(500).json({ message: "Server error", error: error.message });
     }
   }
